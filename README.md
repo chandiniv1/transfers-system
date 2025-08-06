@@ -85,6 +85,7 @@ make server
 
 Server will start on: `http://localhost:8080`
 
+---
 
 ## 📬 2. API Endpoints
 
@@ -114,6 +115,11 @@ Server will start on: `http://localhost:8080`
   "currency": "USD"
 }
 ```
+
+
+### 📄 List Accounts
+
+- **GET** `/accounts?page_id=1&page_size=5`
 
 ---
 
