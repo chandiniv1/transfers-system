@@ -86,7 +86,7 @@ make server
 Server will start on: `http://localhost:8080`
 
 
-## 📬 3. API Endpoints
+## 📬 2. API Endpoints
 
 ### ✅ Create Account
 
@@ -117,7 +117,7 @@ Server will start on: `http://localhost:8080`
 
 ---
 
-## 🧪 4. Testing
+## 🧪 3. Testing
 
 Run tests with:
 
@@ -127,11 +127,11 @@ make test
 
 ---
 
-## 📖 5. Tech Stack
+## 📖 4. Tech Stack
 
 - [Golang](https://golang.org/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [sqlc](https://docs.sqlc.dev/) for type-safe SQL
-- [gin] (https://gin-gonic.com/en/docs/)
+- [sqlc](https://docs.sqlc.dev/)
+- [gin](https://gin-gonic.com/en/docs/)
 
 ---
