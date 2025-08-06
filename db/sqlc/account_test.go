@@ -153,7 +153,6 @@ func TestCreateAccountZeroBalance(t *testing.T) {
 	require.Equal(t, int64(0), account.Balance)
 }
 
-// Test that creating account with negative balance fails
 func TestCreateAccountNegativeBalanceFails(t *testing.T) {
 	arg := CreateAccountParams{
 		AccountID: util.RandomAccountID(),
