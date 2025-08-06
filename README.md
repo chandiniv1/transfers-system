@@ -18,72 +18,80 @@ This project implements a basic internal transfers backend API in Go, supporting
 ├── server/             # HTTP server and routing logic
 ├── db/                 # DB interaction logic using sqlc
 ├── utils/              # Helper utilities (error handling, validation)
-
 ```
 
 ---
 
 ## 🛠️ 1. Installation & Setup
 
-### Clone the repository
+### **Prerequisites**
+
+Before you begin, ensure you have the following installed on your system:
+
+- [Go](https://golang.org/)  
+- [Docker](https://www.docker.com/)  
+- [golang-migrate](https://github.com/golang-migrate/migrate)  
+- [sqlc](https://docs.sqlc.dev/)  
+
+---
+
+### **Clone the repository**
 
 ```bash
 git clone https://github.com/chandiniv1/transfers-system.git
 cd transfers-system
 ```
 
-### Install dependencies
+### **Install dependencies**
 
 ```bash
 go mod tidy
 ```
 
-### Setup PostgreSQL
+### **Setup PostgreSQL**
 
 ```bash
 make network
 make postgres
 ```
 
-### Create DataBase
+### **Create Database**
 
-make sure that postgres is running
+Make sure PostgreSQL is running:
 
 ```bash
 make createdb
 ```
 
-### Run DataBase Migrations
+### **Run Database Migrations**
 
 ```bash
 make migrateup
 ```
 
-To rollback all migrations:
-
+#### Optional: Rollback all migrations
 ```bash
 make migratedown
 ```
 
-To create a new migration:
-
+#### Optional: Create a new migration
 ```bash
 make new_migration name=<name>
 ```
 
-### Generate SQL code
+### **Generate SQL code**
 
 ```bash
 make sqlc
 ```
 
-### Run the server
+### **Run the server**
 
 ```bash
 make server
 ```
 
-Server will start on: `http://localhost:8080`
+Server will start at: **http://localhost:8080**
 
 ---
 
@@ -91,7 +99,18 @@ Server will start on: `http://localhost:8080`
 
 ### ✅ Create Account
 
-- **POST** `/accounts`
+**POST** `/accounts`
+
+Example Request 1:
+```json
+{
+  "account_id": 1,
+  "balance": 1000,
+  "currency": "USD"
+}
+```
+
+Example Request 2:
 ```json
 {
   "account_id": 2,
@@ -100,13 +119,17 @@ Server will start on: `http://localhost:8080`
 }
 ```
 
+---
+
 ### 🔍 Get Account
 
-- **GET** `/accounts/{id}`
+**GET** `/accounts/{id}`
+
+---
 
 ### 🔁 Transfer Between Accounts
 
-- **POST** `/transactions`
+**POST** `/transactions`
 ```json
 {
   "from_account_id": 1,
@@ -120,6 +143,12 @@ Server will start on: `http://localhost:8080`
 ### 📄 List Accounts
 
 - **GET** `/accounts?page_id=1&page_size=5`
+
+---
+
+### 📄 List Accounts
+
+**GET** `/accounts?page_id=1&page_size=5`
 
 ---
 

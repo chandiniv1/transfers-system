@@ -253,7 +253,7 @@ func TestListAccountsAPI(t *testing.T) {
 	}{
 		{
 			name:  "OK",
-			query: "?id=1&page_size=5",
+			query: "?page_id=1&page_size=5",
 			buildStubs: func(store *mockdb.MockStore) {
 				arg := db.ListAccountsParams{
 					Limit:  5,
@@ -271,7 +271,7 @@ func TestListAccountsAPI(t *testing.T) {
 		},
 		{
 			name:  "Internal Error",
-			query: "?id=1&page_size=5",
+			query: "?page_id=1&page_size=5",
 			buildStubs: func(store *mockdb.MockStore) {
 				store.EXPECT().
 					ListAccounts(gomock.Any(), gomock.Any()).
@@ -284,7 +284,7 @@ func TestListAccountsAPI(t *testing.T) {
 		},
 		{
 			name:  "Invalid Page ID",
-			query: "?id=0&page_size=5",
+			query: "?page_id=0&page_size=5",
 			buildStubs: func(store *mockdb.MockStore) {
 				store.EXPECT().
 					ListAccounts(gomock.Any(), gomock.Any()).
@@ -296,7 +296,7 @@ func TestListAccountsAPI(t *testing.T) {
 		},
 		{
 			name:  "Invalid Page Size",
-			query: "?id=1&page_size=15",
+			query: "?page_id=1&page_size=15",
 			buildStubs: func(store *mockdb.MockStore) {
 				store.EXPECT().
 					ListAccounts(gomock.Any(), gomock.Any()).
@@ -308,7 +308,7 @@ func TestListAccountsAPI(t *testing.T) {
 		},
 		{
 			name:  "Missing Query Parameters",
-			query: "?id=1",
+			query: "?page_id=1",
 			buildStubs: func(store *mockdb.MockStore) {
 				store.EXPECT().
 					ListAccounts(gomock.Any(), gomock.Any()).
