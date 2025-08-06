@@ -69,7 +69,7 @@ func (server *Server) getAccount(ctx *gin.Context) {
 }
 
 type listAccountsParams struct {
-	PageID   int64 `form:"id" binding:"required,min=1"`
+	PageID   int64 `form:"page_id" binding:"required,min=1"`
 	PageSize int32 `form:"page_size" binding:"required,min=1,max=10"`
 }
 

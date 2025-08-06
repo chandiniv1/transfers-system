@@ -90,7 +90,7 @@ func TestCreateAccountAPI(t *testing.T) {
 				store.EXPECT().
 					CreateAccount(gomock.Any(), gomock.Any()).
 					Times(1).
-					Return(db.Account{}, &pq.Error{Code: pq.ErrorCode("23505")}) // unique_violation
+					Return(db.Account{}, &pq.Error{Code: pq.ErrorCode("23505")})
 			},
 			checkResponse: func(rec *httptest.ResponseRecorder) {
 				require.Equal(t, http.StatusForbidden, rec.Code)
@@ -107,7 +107,7 @@ func TestCreateAccountAPI(t *testing.T) {
 				store.EXPECT().
 					CreateAccount(gomock.Any(), gomock.Any()).
 					Times(1).
-					Return(db.Account{}, &pq.Error{Code: pq.ErrorCode("23503")}) // foreign_key_violation
+					Return(db.Account{}, &pq.Error{Code: pq.ErrorCode("23503")})
 			},
 			checkResponse: func(rec *httptest.ResponseRecorder) {
 				require.Equal(t, http.StatusForbidden, rec.Code)
